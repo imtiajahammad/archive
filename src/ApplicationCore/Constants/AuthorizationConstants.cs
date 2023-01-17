@@ -1,4 +1,4 @@
-namespace Infrastructure.Constants;
+namespace ApplicationCore.Constants;
 
 public class AuthorizationConstants
 {
