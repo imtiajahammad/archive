@@ -1,8 +1,7 @@
-using Infrastructure.Constants;
+using ApplicationCore.Constants;
 using Infrastructure.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
 namespace Infrastructure.Identity;
 
 public class AppIdentityDbContextSeed
