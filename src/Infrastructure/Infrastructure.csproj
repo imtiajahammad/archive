@@ -10,4 +10,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13"/>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.13"/>
   </ItemGroup>
+  	<ItemGroup>
+		<ProjectReference Include="../ApplicationCore/ApplicationCore.csproj" />
+	</ItemGroup>
 </Project>
