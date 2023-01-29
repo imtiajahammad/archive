@@ -1,4 +1,5 @@
 using ApplicationCore.Constants;
+using infrastructure.Authorization;
 using Infrastructure.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,7 @@ public class AppIdentityDbContextSeed
             identityDbContext.Database.Migrate();
         }
 
-        await roleManager.CreateAsync(new IdentityRole(Authorization.Constants.Roles.ADMINISTRATORS));
+        await roleManager.CreateAsync(new IdentityRole(Constants.Roles.ADMINISTRATORS));
 
         var defaultUser = new ApplicationUser { UserName = "demouser@microsoft.com", Email = "demouser@microsoft.com" };
         await userManager.CreateAsync(defaultUser, AuthorizationConstants.DEFAULT_PASSWORD);
@@ -23,6 +24,6 @@ public class AppIdentityDbContextSeed
         var adminUser = new ApplicationUser { UserName = adminUserName, Email = adminUserName };
         await userManager.CreateAsync(adminUser, AuthorizationConstants.DEFAULT_PASSWORD);
         adminUser = await userManager.FindByNameAsync(adminUserName);
-        await userManager.AddToRoleAsync(adminUser, Authorization.Constants.Roles.ADMINISTRATORS);
+        await userManager.AddToRoleAsync(adminUser, Constants.Roles.ADMINISTRATORS);
     }
 }
