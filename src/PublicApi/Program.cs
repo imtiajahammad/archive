@@ -1,3 +1,4 @@
+using ApplicationCore.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Identity;
 using Infrastructure.Infrastructure.Identity;
@@ -12,6 +13,8 @@ infrastructure.Dependencies.ConfigureServices(builder.Configuration, builder.Ser
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
         .AddEntityFrameworkStores<AppIdentityDbContext>()
         .AddDefaultTokenProviders();
+builder.Services.AddScoped<ITokenClaimsService, IdentityTokenClaimService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
